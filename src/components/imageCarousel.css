@@ -1,0 +1,90 @@
+:root {
+  --card-w: 320px;
+  --card-h: 200px;
+  --gap: 16px;
+  --bg: #f9fafb;
+  --white: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0,0,0,0.08);
+  --accent: #facc15;
+}
+
+.carousel {
+  padding: 20px 24px;
+  background: var(--bg);
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.carousel-header h3 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--card-w);
+  gap: var(--gap);
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.carousel-track::-webkit-scrollbar { height: 8px; }
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+.carousel-track::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.card {
+  scroll-snap-align: start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.card img {
+  width: 100%;
+  height: var(--card-h);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.card figcaption {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--white));
+}
+
+@media (max-width: 768px) {
+  :root { --card-w: 80vw; --card-h: 180px; }
+}
+
+@media (max-width: 480px) {
+  :root { --card-w: 88vw; --card-h: 160px; }
+}
